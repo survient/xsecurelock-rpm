@@ -7,7 +7,18 @@ URL:            https://opensource.google/projects/xsecurelock
 
 Source0:        https://github.com/google/%{name}/releases/download/v%{version}/%{name}-%{version}.tar.gz
 
-BuildRequires:  gcc libX11-devel libXmu-devel libXcomposite-devel pam-devel pamtester libbsd-devel fontconfig-devel libXrandr-devel httpd-tools pandoc doxygen
+BuildRequires: gcc
+BuildRequires: libX11-devel 
+BuildRequires: libXmu-devel
+BuildRequires: libXcomposite-devel
+BuildRequires: pam-devel
+BuildRequires: pamtester
+BuildRequires: libbsd-devel
+BuildRequires: fontconfig-devel
+BuildRequires: libXrandr-devel
+BuildRequires: httpd-tools
+BuildRequires: pandoc
+BuildRequires: doxygen
  
 
 %description
@@ -18,15 +29,17 @@ XSecureLock is an X11 screen lock utility designed with the primary goal of secu
 
 %build
 %configure --with-pam-service-name=system-auth
-make %{?_smp_flags}
+%make_build
 
 %install
 %make_install
 
 
 %files
-%license LICENSE CONTRIBUTING
-%doc README.md LICENSE CONTRIBUTING
+%license LICENSE
+%doc README.md
+%doc CONTRIBUTING
+%doc LICENSE
 %doc /usr/share/doc/xsecurelock/examples/saver_livestreams
 %{_mandir}/man1/%{name}.1*
 %{_bindir}/%{name}
