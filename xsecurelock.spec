@@ -3,7 +3,7 @@ Version:        1.7.0
 Release:        1%{?dist}
 Summary:        X11 screen lock utility with security in mind
 License:        ASL 2.0
-URL:            https://opensource.google/projects/xsecurelock
+URL:            https://github.com/google/xsecurelock
 
 Source0:        https://github.com/google/%{name}/releases/download/v%{version}/%{name}-%{version}.tar.gz
 
@@ -33,13 +33,12 @@ XSecureLock is an X11 screen lock utility designed with the primary goal of secu
 
 %install
 %make_install
-
+rm %{buildroot}%{_pkgdocdir}/LICENSE
 
 %files
 %license LICENSE
 %doc README.md
 %doc CONTRIBUTING
-%doc LICENSE
 %doc /usr/share/doc/xsecurelock/examples/saver_livestreams
 %{_mandir}/man1/%{name}.1*
 %{_bindir}/%{name}
