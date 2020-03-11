@@ -8,21 +8,22 @@ URL:            https://github.com/google/xsecurelock
 Source0:        https://github.com/google/%{name}/releases/download/v%{version}/%{name}-%{version}.tar.gz
 
 BuildRequires: gcc
-BuildRequires: libX11-devel 
-BuildRequires: libXmu-devel
-BuildRequires: libXcomposite-devel
+BuildRequires: pkgconfig(x11)
+BuildRequires: pkgconfig(xmu)
+BuildRequires: pkgconfig(xcomposite)
 BuildRequires: pam-devel
 BuildRequires: pamtester
-BuildRequires: libbsd-devel
-BuildRequires: fontconfig-devel
-BuildRequires: libXrandr-devel
+BuildRequires: pkgconfig(libbsd)
+BuildRequires: pkgconfig(fontconfig)
+BuildRequires: pkgconfig(xrandr)
 BuildRequires: httpd-tools
 BuildRequires: pandoc
 BuildRequires: doxygen
  
 
 %description
-XSecureLock is an X11 screen lock utility designed with the primary goal of security.
+XSecureLock is an X11 screen lock utility designed with the primary goal of
+security.
 
 %prep
 %autosetup
@@ -53,5 +54,5 @@ rm %{buildroot}%{_pkgdocdir}/LICENSE
 %{_libexecdir}/%{name}/until_nonidle
 
 %changelog
-* Fri Feb 21 2020 Sam P <survient@fedoraproject.org>
+* Fri Feb 21 2020 Sam P <survient@fedoraproject.org> - 1.7.0-1
 - Initial Build
